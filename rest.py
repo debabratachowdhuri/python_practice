@@ -2,21 +2,16 @@ import requests
 import json
 
 # Get the feed
-r = requests.get("https://www.googleapis.com/youtube/v3/videos?id=7lCDEYXw3mM&key=AIzaSyB5jNDWFwXL38zBTH70nz7BChg6kBFWwmg&part=snippet,contentDetails,statistics,status")
-r.text
-
+r = requests.get("https://api.themoviedb.org/3/movie/550?api_key=13ef1e7771b4887b9470d27d67577c2a")
+i= 0
 # Convert it to a Python dictionary
 data = json.loads(r.text)
 print data
 # Loop through the result.
-# for item in data['data']['items']:
-#
-#     print "Video Title: %s" % (item['title'])
-#
-#     print "Video Category: %s" % (item['category'])
-#
-#     print "Video ID: %s" % (item['id'])
-#
-#     print "Video Rating: %f" % (item['rating'])
-#
-#     print "Embed URL: %s" % (item['player']['default'])
+for item in data['production_companies']:
+
+    print "Video Title: %s" % (item['name'])
+
+    print "Video ID: %d" % (item['id'])
+
+    i  = i + 1
