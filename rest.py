@@ -2,7 +2,7 @@ import requests
 import json
 
 # Get the feed
-r = requests.get("https://api.themoviedb.org/3/movie/550?api_key=13ef1e7771b4887b9470d27d67577c2a")
+r = requests.get("https://api.themoviedb.org/3/movie/550?api_key=API_KEY")
 i= 0
 # Convert it to a Python dictionary
 data = json.loads(r.text)
