@@ -1,11 +1,17 @@
 import facebook
 import Image
 import urllib, cStringIO
+import key
+import fbAccesstoken
 
-token = "EAALY5GhzJvUBAPQHEhH6sY6Dkd5UaaZAE4jlwqvcOnPVAwwAtSw8f6ggG3ggljCYHHZBRyNSCFUz70r2Tmm7wYyMtZCnrNsonnL6NhNVMEHwiyozh3HGZBAdxVFnJy933w8PtUVRi9ZBnZAiSdcuBKxZCEykUU1OpECbcMWANPUmAZDZD"
+app_id = key.Auth_token.APP_ID
+app_secret = key.Auth_token.APP_SECRET
+fbToken = fbAccesstoken.FbToken();
 
-graph = facebook.GraphAPI(token)
-profile = graph.get_object('me')
+token = fbToken.get_app_access_token(app_id, app_secret)
+
+graph = facebook.GraphAPI(key.Auth_token.FB_AUTH_TOKEN)
+# profile = graph.get_object('me')
 args = {'fields' : 'id,name,email', }
 profile = graph.get_object('me', **args)
 print (profile['email']);

@@ -1,12 +1,13 @@
 import requests
 import json
+import key
 
 # Get the feed
-r = requests.get("https://api.themoviedb.org/3/movie/550?api_key=API_KEY")
-i= 0
+r = requests.get("https://api.themoviedb.org/3/movie/550?api_key="+key.Auth_token.MOVIE_API_KEY)
+
 # Convert it to a Python dictionary
 data = json.loads(r.text)
-print data
+# print data
 # Loop through the result.
 for item in data['production_companies']:
 
@@ -14,4 +15,5 @@ for item in data['production_companies']:
 
     print "Video ID: %d" % (item['id'])
 
-    i  = i + 1
+
+data = json.loads(r.text)
